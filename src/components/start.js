@@ -1,8 +1,8 @@
 import React from "react";
-import firebase from "firebase";
+//import firebase from "firebase";
 import { Redirect, withRouter } from "react-router-dom";
 //import history from "../elements/history"
-import { newPage, getRemove, sleep } from "../elements/functions";
+import { newPage, getRemove } from "../elements/functions";
 //import config from "../elements/config";
 //import "./styles.css";
 
@@ -29,13 +29,6 @@ class Basic extends React.Component {
       console.log({ ...this.props.state, looking: true });
       await this.props.collector({ ...this.props.state, looking: true });
       console.log(this.props.state);
-      firebase
-        .database()
-        .ref("looking/" + this.props.state.loggedin)
-        .set({
-          username: this.props.state.loggedin,
-          level: 1
-        });
       this.setState({ access: true });
       newPage("/game", this.props.state);
     } else {

@@ -3,6 +3,7 @@ import firebase from "firebase";
 import history from "../elements/history";
 import { withRouter } from "react-router-dom";
 import { newPage, getRemove } from "../elements/functions";
+import publicIp from "react-public-ip";
 //import config from "../elements/config";
 //import "./styles.css";
 
@@ -61,7 +62,11 @@ class Login extends React.Component {
             loggedin: this.state.keys.name
           });
           newPage("/", this.props.state);
+        } else {
+          console.log("NO");
         }
+      } else {
+        console.log("NO");
       }
     }
   }
